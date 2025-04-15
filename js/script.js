@@ -48,14 +48,31 @@ function guardarChiste(chistes) {
 
 function renderJoke(chiste) {
     jokeList.innerHTML += template(chiste);
-    let chistes = [];
+    let chistes = obtenerChiste();
     chistes.push(chiste);
     guardarChiste(chistes);
 }
 
+jokeList.addEventListener('click', function(e) {
+    if (e.target.tagName === 'BUTTON') {
+        const li = e.target.parentElement;
+        const texto = li.querySelector('p').textContent;
+
+        // Eliminar el chiste del localStorage
+        let chistes = obtenerChiste();
+        chistes = chistes.filter(chiste => chiste !== texto);
+        guardarChiste(chistes);
+
+        // Eliminar del DOM
+        li.remove();
+    }
+});
+window.addEventListener('DOMContentLoaded', () => {
+    const chistesGuardados = obtenerChiste();
+    chistesGuardados.forEach(chiste => {
+        jokeList.innerHTML += template(chiste);
+    });
+});
 
 
 
-
-
-obtenerChiste();
