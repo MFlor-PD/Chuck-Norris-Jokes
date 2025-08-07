@@ -1,15 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <title>Chuck Norris Jokes</title>
 </head>
 <body>
-  <h1>Chuck Norris Jokes</h1>
-  <button id="fetchJoke">Obtener Chiste</button>
-  <ul id="jokeList"></ul>
+  <div class="container">
+    <header class="header">
+      <div class="logo">
+        <img src="./img/Screenshot 2025-08-07 183826.png" alt="Chuck Norris" class="logo-img">
+        <h1>Chuck Norris Jokes</h1>
+      </div>
+      <p class="subtitle">Descubre los mejores chistes del legendario Chuck Norris</p>
+    </header>
+
+    <main class="main-content">
+      <div class="joke-generator">
+        <button id="fetchJoke" class="fetch-button">
+          <i class="fas fa-dumbbell"></i>
+          <span>Obtener Chiste</span>
+        </button>
+        <div class="loading-spinner" id="loadingSpinner">
+          <i class="fas fa-spinner fa-spin"></i>
+          <span>Cargando chiste...</span>
+        </div>
+      </div>
+
+      <div class="jokes-section">
+        <h2 class="section-title">
+          <i class="fas fa-list"></i>
+          Mis Chistes Guardados
+        </h2>
+        <div class="jokes-container">
+          <ul id="jokeList" class="joke-list"></ul>
+          <div class="empty-state" id="emptyState">
+            <i class="fas fa-inbox"></i>
+            <p>No tienes chistes guardados aún</p>
+            <p>¡Haz clic en "Obtener Chiste" para empezar!</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>Powered by Chuck Norris API</p>
+    </footer>
+  </div>
 
   <script src="./js/script.js"></script>
 </body>
